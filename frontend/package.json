@@ -1,0 +1,30 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.7",
+    "@tanstack/query-core": "^5.51.1",
+    "antd": "^5.19.1",
+    "antd-web3": "^0.2.0",
+    "ethers": "^6.13.1",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "wagmi": "^2.10.10"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "typescript": "^5"
+  }
+}

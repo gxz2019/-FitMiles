@@ -1,8 +1,8 @@
 import '../styles/globals.css';
 import { createConfig, WagmiProvider, http } from 'wagmi';
-import { ConfigProvider } from 'antd';
 import type { AppProps } from 'next/app';
 import { mainnet, sepolia } from 'wagmi/chains';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const config = createConfig({
   chains: [mainnet, sepolia],
@@ -12,12 +12,14 @@ const config = createConfig({
   },
 })
 
+const queryClient = new QueryClient()
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiProvider config={config}>
-      <ConfigProvider>
+      <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
-      </ConfigProvider>
+      </QueryClientProvider>
     </WagmiProvider>
   );
 }

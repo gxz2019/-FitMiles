@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.description {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.card {
+  width: 100%;
+}
+
+.disconnectButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}

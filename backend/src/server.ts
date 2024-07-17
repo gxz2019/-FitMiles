@@ -1,16 +1,16 @@
 import express from 'express';
-import cors from 'cors';
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes';
 
+dotenv.config();
+
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
-app.use(cors()); // 允许所有来源的跨域请求
 app.use(bodyParser.json());
-
-app.use('/api/users', userRoutes);
+app.use('/api', userRoutes);
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });

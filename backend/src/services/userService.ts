@@ -1,15 +1,19 @@
-interface User {
-  address: string;
-  tokensEarned: number;
-  runsCompleted: number;
-}
+import pool from '../config/db';
 
-const users: User[] = [
-  { address: '0xD1bB8691b7EdD48d81b2a37eD62545Be04df2337', tokensEarned: 1200, runsCompleted: 15 },
-  { address: '0x456', tokensEarned: 800, runsCompleted: 10 },
-];
+export const getUsers = async () => {
+  const result = await pool.query('SELECT * FROM users');
+  return result.rows;
+};
 
-export const getUserByAddress = async (address: string): Promise<User | null> => {
-  const user = users.find(user => user.address === address);
-  return user || null;
+export const getUserByAddress = async (address: string) => {
+  const result = await pool.query('SELECT * FROM users WHERE address = $1', [address]);
+  return result.rows[0];
+};
+
+export const createUser = async (address: string, name: string, email: string) => {
+  const result = await pool.query(
+    'INSERT INTO users (address, name, email) VALUES ($1, $2, $3) RETURNING *',
+    [address, name, email]
+  );
+  return result.rows[0];
 };

@@ -11,7 +11,7 @@ const options = {
       description: 'API documentation for FitMiles project',
     },
   },
-  apis: ['./src/routes/*.ts'], // 路径到包含注释的文件
+  apis: ['./src/routes/*.ts'],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

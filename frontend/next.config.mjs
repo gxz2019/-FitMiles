@@ -8,6 +8,9 @@ const nextConfig = {
     "rc-pagination",
     "rc-picker",
   ],
+  env: {
+    NEXT_PUBLIC_API_URL: 'http://localhost:5000',
+  },
 };
 
 export default nextConfig;

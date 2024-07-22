@@ -3,14 +3,9 @@ import { useAccount, useDisconnect } from 'wagmi';
 import { Button, Typography, Row, Col, Card } from 'antd';
 import { useRouter } from 'next/router';
 import styles from '../styles/Profile.module.css';
+import { User } from '../openapi/models';
 
 const { Title, Paragraph } = Typography;
-
-interface User {
-  address: string;
-  tokensEarned: number;
-  runsCompleted: number;
-}
 
 export default function Profile() {
   const { address, isConnected } = useAccount();
@@ -79,8 +74,8 @@ export default function Profile() {
           <Col span={12}>
             <Card title="Profile Information" className={styles.card}>
               <p><strong>Address:</strong> {user.address}</p>
-              <p><strong>Tokens Earned:</strong> {user.tokensEarned}</p>
-              <p><strong>Runs Completed:</strong> {user.runsCompleted}</p>
+              {/* <p><strong>Tokens Earned:</strong> {user.tokensEarned}</p> */}
+              {/* <p><strong>Runs Completed:</strong> {user.runsCompleted}</p> */}
             </Card>
           </Col>
           <Col span={12}>
